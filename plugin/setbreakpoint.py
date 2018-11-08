@@ -11,7 +11,7 @@ def get_breakpoint_cmd():
         del pdb
         spdb = 'pdb'
 
-    return 'import {}; {}.set_trace()'.format(spdb, spdb)
+    return 'import {}; {}.set_trace()  # yapf: disable # noqa'.format(spdb, spdb)
 
 
 def remove_breakpoint(code):
