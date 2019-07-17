@@ -1,15 +1,21 @@
+if !has('python3')
+    finish
+endif
+
+
 " --------------------------------
 " Add our plugin to the path
 " --------------------------------
 python3 import sys
 python3 import vim
 python3 import re
-python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
+python3 if vim.eval('expand("<sfile>:p:h")') not in sys.path: sys.path.append(vim.eval('expand("<sfile>:p:h")'))
 
 " --------------------------------
 "  Function(s)
 " --------------------------------
 function! SetBreakPoint()
+
   python3 << endOfPython
 import setbreakpoint
 cmd = setbreakpoint.get_breakpoint_cmd()
