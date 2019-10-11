@@ -24,9 +24,9 @@ vim.command("let g:py_breakpoint_cmd='{}'".format(cmd))
 endOfPython
   endif
 
-  let a:cursor = line('.')
-  let line = getline(a:cursor)
-  let plnum = prevnonblank(a:cursor)
+  let l:cursor = line('.')
+  let line = getline(l:cursor)
+  let plnum = prevnonblank(l:cursor)
   if &expandtab
       let indents = repeat(' ', indent(plnum))
   else
